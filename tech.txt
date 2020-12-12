@@ -1,0 +1,13 @@
+
+    寄件信息和收件信息传到全局变量globalData然后wx.navigateback回/fajian/index
+
+    订单编号为年月日时分秒14个数字+6位随机数
+    order_list的wx.navigateTo将packageid作为url参数传值到order_info页面，onLoad获取传的packageid，
+onShow函数postpackageid到/api/mypackageinfo返回该订单的数据展示在订单详情页面
+    /api/mypackageinfo时间加7天返回，预计于***前送达
+
+    确认收货后，更具packageid将订单状态status由1改为0，跳转回/my/order_list页面
+    已收货的订单详情页面，按钮为‘删除’
+    待收货的订单详情页面，按钮为‘确认收货’
+
+    订单详情页面的status_desc会根据status的1，0返回“待收货”，“已收货”

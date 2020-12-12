@@ -1,0 +1,73 @@
+<view class="container">
+    <view class="sec-wrap">
+        <view class="order-status">
+            <view class="icon-box">
+                <!-- 已收货的图标 -->
+                <image wx:if="{{info.status== 0}}" class="icon" src="/images/order/icon-ddgb.png"></image>
+                <!-- 待收货的图标 -->
+                <image wx:elif="{{info.status== 1}}" class="icon" src="/images/order/icon-ddsh.png"></image>
+            </view>
+            <view class="right-text">
+                <view class="status red">{{info.status_desc}}</view>
+                <view class="des">预计于{{ info.deadline }}前送达</view>
+            </view>
+        </view>
+        <!-- <block>
+            <view class="address-sec">
+                <view class="icon-box">
+                    <image class="icon" src="/images/order/icon-address.png"></image>
+                </view>
+                <view class="list-title">发件人信息</view>
+                <view class="btn-row">
+                    <view class="name-tel">发件地址：{{info.fromaddress}} </view>
+                    <view class="name-tel">发件人电话：{{info.frommobile}}</view>
+
+                    <view class="text">
+                        {{info.remark}}
+                    </view>
+                </view>
+            </view>
+        </block> -->
+    </view>
+    <view class="goods-list">
+        <view class="list-title">发件人信息</view>
+                
+                    <view class="name-tel">发件地址：{{info.fromaddress}} </view>
+                    <view class="name-tel">发件人电话：{{info.frommobile}}</view>
+
+                    <view class="text">
+                        备注：{{info.remark}}
+          
+                </view>
+   
+    </view>
+    <view class="goods-list">
+        <view class="list-title">收件人信息</view>
+
+        <view class="name-tel">收件地址：{{info.toaddress}} </view>
+        <view class="name-tel"> 收件人电话：{{info.tomobile}}</view>
+
+        <!-- 确认收货or删除订单按钮 -->
+        <view class="btn-row">
+            <button wx:if="{{info.status== 1}}" class="confirm-btn" data-id="{{info.packageid}}"
+                bindtap="changeStatus">确认收货</button>
+            <button wx:elif="{{info.status== 0}}" class="confirm-btn" data-id="{{info.packageid}}"
+                bindtap="deleteOrder">删除订单</button>
+
+        </view> 
+    </view>
+    <view class="goods-info">
+        <view class="row-box">
+            <view class="row-label">运费</view>
+            <view class="right-text">¥ {{info.price}}</view>
+        </view>
+        <view class="row-box">
+            <view class="row-label">保价费</view>
+            <view class="right-text">+ ¥ {{info.insurance}}</view>
+        </view>
+        <view class="row-box">
+            <view class="row-label">付款总额</view>
+            <view class="right-text">¥ {{info.total_price}}</view>
+        </view>
+    </view>
+</view>

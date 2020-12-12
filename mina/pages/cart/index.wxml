@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <!--搜索框-->
+  <view class="search-view"
+    style="background:{{ scrollTop === 0 ?'-webkit-linear-gradient(top, rgba(105,195,170, 1), rgba(105,195,170, 0.3))' :( scrollTop<200 ? 'rgba(105,195,170,'+(scrollTop/400+0.3) +')' : 'rgba(105,195,170,1)')  }} ">
+    <view class="search-content">
+      <image src="/images/search-pic.png" class="search-icon" />
+      <input placeholder="请输入搜索内容" class="search-input" maxlength="30" confirm-type="搜索"
+        bindinput='listenerSearchInput'>
+      </input>
+      <button class='search-btn' bindtap="toSearch">搜索</button>
+    </view>
+  </view>
+  
+  <view class="title-box"  hidden="{{ info_flag ? false : true}}">
+    订单创建时间：{{created_time}} <text>\r\n</text>
+    账户名：{{nickname}} <text>\r\n</text>
+    寄件地址：{{ fromaddress }}<text>\r\n</text>
+    寄件人：{{ fromname }}<text>\r\n</text>
+    寄件人手机号：{{frommobile}} <text>\r\n</text>
+    收件地址：{{toaddress}} <text>\r\n</text>
+    收件人：{{toname}} <text>\r\n</text>
+    收件人手机号：{{tomobile}} <text>\r\n</text>
+    价格：{{price}} <text>\r\n</text>
+    重量：{{weight}}<text>\r\n</text>
+    备注：{{remark}}
+  </view>
+  <view></view>
+  <view class="divLine" style="z-index:100"></view>
+  <view class="to-index-btn" bindtap="toIndexPage">
+    去寄件
+  </view>
+
+
+
+</view>

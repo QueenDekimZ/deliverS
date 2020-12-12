@@ -1,0 +1,92 @@
+<!--index.wxml-->
+<!--1px = 750/320 = 2.34rpx;-->
+
+<view class="container">
+  <view class="address">
+    <!-- 寄件人信息 -->
+    <view class="jihuo">
+      <image src="/images/more/寄-01.png" class="jiimg"></image>
+      <navigator url="/pages/fajian/addressjijianren" hover-class="none">
+        <input placeholder="点击填写寄件人信息" class="button_ji" disabled="true" bindinput="getJiJianInfo" />
+
+
+
+        <!-- <view class="btn-row">
+            <button wx:if="{{info.status== 1}}" class="confirm-btn" data-id="{{info.packageid}}"
+                bindtap="changeStatus">确认收货</button>
+            <button wx:elif="{{info.status== 0}}" class="confirm-btn" data-id="{{info.packageid}}"
+                bindtap="changeStatus">删除订单</button>
+
+        </view> -->
+        <!-- <text>\r\n\n</text> -->
+        <!-- <span class="jijian2">点击填写寄件人信息</span> -->
+      </navigator>
+    </view>
+    <!-- 收件人信息 -->
+    <view class="shouhuo">
+      <image src="/images/more/收-01.png" class="shouimg"></image>
+      <navigator url="/pages/fajian/addressshoujianren" hover-class="none">
+        <!-- <span class="button_shou"> -->
+        <input placeholder="点击填写收件人信息" class="button_shou" disabled="true" />
+        <!-- </span> -->
+        <!-- <text>\r\n\n</text> -->
+        <!-- <span class="shoujian2">点击填写收件人信息</span> -->
+      </navigator>
+    </view>
+
+    <view class="baojia">
+      <!-- 备注框 -->
+      <span class="beizhu">备注：</span>
+      <input bindinput="beizhu_input" class="beizhu_input" placeholder="请输入备注" />
+      <!-- <image src="/images/more/下.png" style=" height: 38%;;width:30px;float:right" bindtap="showModal"></image> -->
+      <view class="divLine"></view>
+      <!-- 保价框 -->
+      <span class="beizhu">保价： </span> <input bindinput="baojia_input" class="baojia_input" type="number" min="0"
+        step="1" placeholder="请输入保价金额" />
+
+      <image src="/images/more/下.png" style="  height: 38%;;width:30px;float:right"></image>
+    </view>
+  </view>
+
+
+  <!-- 价格弹框 -->
+  <view class="cal_button">
+    <view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
+      <view class="modals-cancel" bindtap="hideModal">
+
+      </view>
+      <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+        <view style="float:left;font-weight:bold;margin-left: 1%;">重量</view>
+        <view style="float:right;margin-left:8px"> kg</view>
+        <view class='stepper' style="float:right">
+          <text class='{{minusStatus}}' type='number' bindtap='bindMinus'>-</text>
+          <input bindinput='bindManual' value='{{num}}'></input>
+          <text bindtap='bindPlus'>+</text>
+        </view>
+        <view class="divLine"></view>
+        <view class="yunbaofont1">运费： </view>
+        <view class="yunfei"> {{price}}元</view>
+        <view class="yunbaofont2">保费： </view>
+
+        <view class="baofei"> {{insurance}}元</view>
+        <view></view>
+
+      </view>
+    </view>
+
+    <!-- 重量、预估费用、下单 -->
+    <button class="button_weight" bindtap="showModal"><span class="button_price_font">预估费用：</span><span
+        style="font-color:red;">{{total_price}}元</span>
+    </button>
+    <image src="/images/more/上.png" style="height:10px;width:5%" bindtap="showModal"></image>
+    <button class="button_submit" style="background-color: #0398e7;" type="primary" form-type="submit"
+      bindtap="submitOrder">下 单
+    </button>
+  </view>
+
+
+
+
+  <!-- <button type="primary">主要按钮</button> -->
+
+</view>

@@ -1,0 +1,5 @@
+flask
+flask_sqlAlchemy
+mysqlclient
+flask_script
+flask-sqlacodegen
